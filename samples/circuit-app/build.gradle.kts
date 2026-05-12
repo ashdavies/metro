@@ -34,6 +34,9 @@ kotlin {
         implementation(libs.circuit.runtime)
         implementation(libs.circuit.codegenAnnotations)
 
+        // Third party dependencies
+        implementation("io.ktor:ktor-client-core:3.4.3")
+
         // Compose dependencies
         implementation(libs.compose.runtime)
         implementation(libs.compose.material3)

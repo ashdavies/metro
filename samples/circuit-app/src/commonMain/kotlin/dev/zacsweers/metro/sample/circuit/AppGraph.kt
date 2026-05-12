@@ -9,10 +9,15 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.DependencyGraph
 import dev.zacsweers.metro.Provides
 import dev.zacsweers.metro.SingleIn
+import io.ktor.client.HttpClient
 
 @DependencyGraph(AppScope::class)
 interface AppGraph {
   val app: CounterAppClass
+
+  @Provides
+  @SingleIn(AppScope::class)
+  fun provideHttpClient(): HttpClient = HttpClient()
 
   @Provides
   @SingleIn(AppScope::class)

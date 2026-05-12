@@ -11,10 +11,11 @@ import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.runtime.presenter.Presenter
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.Inject
+import io.ktor.client.HttpClient
 
 @CircuitInject(CounterScreen::class, AppScope::class)
 @Inject
-class CounterPresenter : Presenter<CounterState> {
+class CounterPresenter(private val httpClient: HttpClient) : Presenter<CounterState> {
   @Composable
   override fun present(): CounterState {
     var count by remember { mutableStateOf(0) }
